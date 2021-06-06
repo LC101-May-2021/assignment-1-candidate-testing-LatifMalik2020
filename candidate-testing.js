@@ -54,13 +54,13 @@ function gradeQuiz() {
 
   let grade = 0;
 
-  if (candidatePoints > 0) {
+  //if (candidatePoints > 0) {
     grade = (candidatePoints / maxPoints) * 100;
   
     if (grade >= 80) {
       console.log( ">>> Status: PASSED<<<");
     }
-  } else {
+   else {
     console.log(">>> Status: FAILED <<<");
   }
 
