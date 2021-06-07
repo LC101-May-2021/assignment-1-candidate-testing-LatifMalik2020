@@ -39,24 +39,24 @@ function gradeQuiz() {
   maxPoints = 5;
 
   for (i = 0; i < correctAnswers.length; i++) {
-    if (candidateAnswers && candidateAnswers[i]) {
-      if (typeof correctAnswers[i] === 'string') {
+   // if (candidateAnswers && candidateAnswers[i]) {
+     // if (typeof correctAnswers[i] === 'string') {
         if (candidateAnswers[i].trim().toLowerCase() === correctAnswers[i].toLowerCase()) {
           candidatePoints++;
         }
-      } else if (typeof correctAnswers[i] === 'number') {
-        if (parseInt(candidateAnswers[i]) === correctAnswers[i]) {
-          candidatePoints++;
-        }
-      }
-    }
+      //} else if (typeof correctAnswers[i] === 'number') {
+        //if (parseInt(candidateAnswers[i]) === correctAnswers[i]) {
+         // candidatePoints++;
+       // }
+      //}
+  //  }
   }
 
   let grade = 0;
 
   //if (candidatePoints > 0) {
     grade = (candidatePoints / maxPoints) * 100;
-  
+  console.log(`>>> Overall Grade: ${grade}% (${candidatePoints} of ${maxPoints} responses correct) <<<`)
     if (grade >= 80) {
       console.log( ">>> Status: PASSED<<<");
     }
@@ -64,7 +64,6 @@ function gradeQuiz() {
     console.log(">>> Status: FAILED <<<");
   }
 
-  console.log("Overall Score: "+ grade);
   return grade
 }
 
