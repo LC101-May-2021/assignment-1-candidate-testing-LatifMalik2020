@@ -33,34 +33,25 @@ function askQuestion() {
   }
 }
 
-function gradeQuiz() {
+function gradeQuiz(candidateAnswers) {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly //
   let candidatePoints = 0;
   let maxPoints = 5;
 
   for (let i = 0; i < correctAnswers.length; i++) {
-   // if (candidateAnswers && candidateAnswers[i]) {
-     // if (typeof correctAnswers[i] === 'string') {
-        if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
-          candidatePoints++;
-        }
-      //} else if (typeof correctAnswers[i] === 'number') {
-        //if (parseInt(candidateAnswers[i]) === correctAnswers[i]) {
-         // candidatePoints++;
-       // }
-      //}
-  //  }
-  }
-
-  let grade = 0;
-
-  //if (candidatePoints > 0) {
-    grade = (candidatePoints / maxPoints) * 100;
-  console.log(`>>> Overall Grade: ${grade}% (${candidatePoints} of ${maxPoints} responses correct) <<<`)
-    if (grade >= 80) {
-      console.log( ">>> Status: PASSED<<<");
+    if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
+      candidatePoints++;
     }
-   else {
+  }
+  let grade = 0;  
+  
+  grade = (candidatePoints / maxPoints) * 100;
+  
+  console.log(`>>> Overall Grade: ${grade}% (${candidatePoints} of ${maxPoints} responses correct) <<<`)
+    
+  if (grade >= 80) {
+    console.log( ">>> Status: PASSED<<<");
+  }else {
     console.log(">>> Status: FAILED <<<");
   }
 
@@ -71,7 +62,7 @@ function runProgram() {
   askForName();
   // TODO 1.1c: Ask for candidate's name //
   askQuestion();
-  gradeQuiz();
+  gradeQuiz(candidateAnswers);
 }
 
  // Don't write any code below this line //
@@ -81,9 +72,9 @@ candidateName: candidateName,
 question: question,
 correctAnswer: correctAnswer,
 candidateAnswer: candidateAnswer,
+questions: questions,
+correctAnswers: correctAnswers,
 candidateAnswers: candidateAnswers,
- questions: questions,
- correctAnswers: correctAnswers,
- gradeQuiz: gradeQuiz,
- runProgram: runProgram
+gradeQuiz: gradeQuiz,
+runProgram: runProgram
 };
