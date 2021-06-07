@@ -35,13 +35,13 @@ function askQuestion() {
 
 function gradeQuiz() {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly //
-  candidatePoints = 0;
-  maxPoints = 5;
+  let candidatePoints = 0;
+  let maxPoints = 5;
 
-  for (i = 0; i < correctAnswers.length; i++) {
+  for (let i = 0; i < correctAnswers.length; i++) {
    // if (candidateAnswers && candidateAnswers[i]) {
      // if (typeof correctAnswers[i] === 'string') {
-        if (candidateAnswers[i].trim().toLowerCase() === correctAnswers[i].toLowerCase()) {
+        if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
           candidatePoints++;
         }
       //} else if (typeof correctAnswers[i] === 'number') {
